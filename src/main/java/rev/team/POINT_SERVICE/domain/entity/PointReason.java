@@ -2,10 +2,8 @@ package rev.team.POINT_SERVICE.domain.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,10 +12,11 @@ import javax.persistence.Id;
 public class PointReason {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pointReasonId;
 
     @NonNull
-    private String reason;
+    private String pointReason;
 
     @NonNull
     private int point;
