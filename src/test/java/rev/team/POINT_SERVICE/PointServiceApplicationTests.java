@@ -18,7 +18,6 @@ class PointServiceApplicationTests {
 	@Test
 	void save() { // insert
 		pointReasonRepository.save(PointReason.builder()
-				.pointReasonId((long) 2)
 				.point(2)
 				.reason("포인트 테스트 2")
 				.build());

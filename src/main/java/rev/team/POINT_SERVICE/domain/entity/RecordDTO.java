@@ -6,9 +6,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PointDTO {
+public class RecordDTO {
 
-    private int point;
+    private String userId;
 
-    private String reason;
+    private PointReason pointReasonId;
+
 }
