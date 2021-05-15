@@ -47,13 +47,17 @@ public class PointReasonService {
     }
 
     public String delete(Long id) {
-        pointHistoryRepository.deleteById(id);
+        if (!pointHistoryRepository.findById(id).isEmpty()) {
+            pointHistoryRepository.deleteById(id);
+        }
         pointReasonRepository.deleteById(id);
         return "DELETE SUCCESS";
     }
 
     public String update(Long id, PointDTO pointDTO) {
-        pointHistoryRepository.updateById(id, pointDTO.getPointReason(), pointDTO.getPoint());
+        if (!pointHistoryRepository.findById(id).isEmpty()) {
+            pointHistoryRepository.updateById(id, pointDTO.getPointReason(), pointDTO.getPoint());
+        }
         pointReasonRepository.updateById(id, pointDTO.getPointReason(), pointDTO.getPoint());
         return "UPDATE SUCCESS";
     }

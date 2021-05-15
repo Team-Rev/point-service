@@ -16,7 +16,7 @@ public class PointReason {
     private Long pointReasonId;
 
     @NonNull
-    private String pointReason;
+    private String reason;
 
     @NonNull
     private int point;

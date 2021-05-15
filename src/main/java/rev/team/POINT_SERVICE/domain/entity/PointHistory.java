@@ -13,11 +13,13 @@ import java.time.LocalDateTime;
 public class PointHistory {
 
     @Id
-    private Long pointListId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @NonNull
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) // n:1 관계
     @JoinColumn(name = "pointReasonId") // 참조키
-    private PointReason pointListReasonId;
+    private PointReason pointReasonId;
 
     @NonNull
     private String userId;

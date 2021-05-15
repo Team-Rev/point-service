@@ -2,8 +2,6 @@ package rev.team.POINT_SERVICE.domain.entity;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
