@@ -10,5 +10,5 @@ public class PointDTO {
 
     private int point;
 
-    private String pointReason;
+    private String reason;
 }

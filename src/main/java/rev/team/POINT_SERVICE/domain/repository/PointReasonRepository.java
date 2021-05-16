@@ -15,4 +15,6 @@ public interface PointReasonRepository extends JpaRepository<PointReason, Long> 
     @Query(value = "UPDATE point_reason SET point_reason = :reason, point = :point WHERE (point_reason_id = :id);", nativeQuery = true)
     void updateById(Long id, String reason, int point);
 
+    PointReason findByPointReasonId(long pointReasonId);
+
 }

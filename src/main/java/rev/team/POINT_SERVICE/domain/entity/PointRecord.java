@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-public class PointHistory {
+public class PointRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
