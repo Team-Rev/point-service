@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import rev.team.POINT_SERVICE.domain.entity.PointDTO;
 import rev.team.POINT_SERVICE.domain.entity.PointReason;
 import rev.team.POINT_SERVICE.domain.entity.PointRecord;
-import rev.team.POINT_SERVICE.domain.entity.RecordDTO;
 import rev.team.POINT_SERVICE.domain.repository.PointRecordRepository;
 import rev.team.POINT_SERVICE.domain.repository.PointReasonRepository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +64,8 @@ public class PointService {
     }
 
     public String record(String userId, Long reasonId) {
+
+        // 포인트 사유 아이디에 해당하는 튜플 가져오기
         PointReason reason = pointReasonRepository.findByPointReasonId(reasonId);
 
         // 사용자 누적 포인트 변경
@@ -73,21 +75,10 @@ public class PointService {
         pointRecordRepository.save(PointRecord.builder()
                 .userId(userId)
                 .pointReasonId(reason)
+                .pointDate(LocalDateTime.now())
                 .build());
 
         return "RECORD SUCCESS";
     }
 
-    /*
-    public String record(RecordDTO recordDTO) {
-        pointRecordRepository.save(PointRecord.builder()
-                .userId(recordDTO.getUserId())
-                .pointReasonId(recordDTO.getPointReasonId())
-                .build());
-
-        // pointRecordRepository.updateUserPointById(recordDTO.getUserId(), );
-        return "RECORD SUCCESS";
-    }
-
-     */
 }
