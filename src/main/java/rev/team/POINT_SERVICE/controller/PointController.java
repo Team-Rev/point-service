@@ -50,6 +50,6 @@ public class PointController {
     // TODO: 특정 사용자 포인트 기록 전달
     @GetMapping("/userRecord/{userId}")
     public List<UserPointRecordRes> getUserRecord(@PathVariable("userId") String userId, Pageable pageable) {
-        return pointRecordService.userRecord(userId);
+        return pointRecordService.userRecord(userId, pageable);
     }
 }

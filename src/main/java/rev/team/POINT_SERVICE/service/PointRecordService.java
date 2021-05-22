@@ -1,6 +1,8 @@
 package rev.team.POINT_SERVICE.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import rev.team.POINT_SERVICE.domain.entity.PointReason;
 import rev.team.POINT_SERVICE.domain.entity.PointRecord;
@@ -43,8 +45,8 @@ public class PointRecordService {
         return "RECORD SUCCESS";
     }
 
-    public List<UserPointRecordRes> userRecord(String userId) {
-        List<PointRecord> records = pointRecordRepository.findByUserId(userId);
+    public List<UserPointRecordRes> userRecord(String userId, Pageable pageable) {
+        Page<PointRecord> records = pointRecordRepository.findByUserId(userId, pageable);
         List<UserPointRecordRes> recordList = new LinkedList<>();
 
         for (PointRecord record : records) {
