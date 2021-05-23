@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import rev.team.POINT_SERVICE.domain.entity.PointRecord;
 
-import java.util.List;
-
 @Repository
 public interface PointRecordRepository extends JpaRepository<PointRecord, Long> {
 
